@@ -1,4 +1,3 @@
-
 from main import SessionLocal, User, get_password_hash
 
 # Create a new database session
