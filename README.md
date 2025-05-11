@@ -14,13 +14,9 @@ A simple FastAPI web application with a secure login form, supporting multiple u
 📁 Project Structure
 
 ├── main.py # FastAPI app
-
 ├── templates/
-
-│ ├── login.html # Login form
-
-│ └── dashboard.html # Dashboard after login
-
+      ├── login.html # Login form with signup
+      └── dashboard.html # Dashboard after login
 └── README.md # This file
 
 
