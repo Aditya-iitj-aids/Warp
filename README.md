@@ -17,8 +17,8 @@ A simple FastAPI web application with a secure login form, supporting multiple u
 
 ├── templates/
 
-      ├── login.html # Login form with signup
-      
+      ├── login.html # Login form with signup link
+      ├── signup.html
       └── dashboard.html # Dashboard after login
       
 └── README.md # This file
