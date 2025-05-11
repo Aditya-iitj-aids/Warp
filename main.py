@@ -80,3 +80,18 @@ def logout():
     response = RedirectResponse(url="/")
     response.delete_cookie("access_token")
     return response
+@app.get("/signup", response_class=HTMLResponse)
+def signup_form(request: Request):
+    return templates.TemplateResponse("signup.html", {"request": request})
+
+@app.post("/signup")
+def signup(request: Request, username: str = Form(...), password: str = Form(...)):
+    db: Session = SessionLocal()
+    existing_user = db.query(User).filter(User.username == username).first()
+    if existing_user:
+        return templates.TemplateResponse("signup.html", {"request": request, "error": "User already exists!"})
+    new_user = User(username=username, hashed_password=get_password_hash(password))
+    db.add(new_user)
+    db.commit()
+    db.refresh(new_user)
+    return RedirectResponse(url="/", status_code=302)
