@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request, Form, Depends, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
+templates = Jinja2Templates(directory="templates")
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 from sqlalchemy import Column, Integer, String, create_engine

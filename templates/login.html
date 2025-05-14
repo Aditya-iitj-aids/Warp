@@ -106,7 +106,7 @@
       <a href="/signup">Sign Up</a>
     </div>
     <h2>Welcome back!</h2>
-    <form>
+    <form action="/login" method="post">
       <label for="email">Email</label>
       <input type="email" id="email" placeholder="Enter your email" required>
 
@@ -114,6 +114,9 @@
       <input type="password" id="password" placeholder="Enter your password" required>
 
       <button class="login-btn" type="submit">Login</button>
+      {% if error %}
+  <div class="error" style="color: red; margin-top: 10px;">{{ error }}</div>
+{% endif %}
     </form>
     <div class="footer">
       Don’t have an account? <a href="/signup">Sign up</a>
